@@ -1,0 +1,14 @@
+Script started on 2026-09-08 10:29:02+08:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="24"]
+[?2004h]0;dongh@dongh-X99: ~/log/XiangShan/stage1_log[01;32mdongh@dongh-X99[00m:[01;34m~/log/XiangShan/stage1_log[00m$ [7msudo dpkg --configure -a[27msudo dpkg --configure -a
+[?2004l[sudo] password for dongh: 
+[?2004h]0;dongh@dongh-X99: ~/log/XiangShan/stage1_log[01;32mdongh@dongh-X99[00m:[01;34m~/log/XiangShan/stage1_log[00m$ [7msudo systemctl disable --now unatten[27m[7md[27m[7med-upgrades[27m[A]0;dongh@dongh-X99: ~/log/XiangShan/stage1_log[01;32mdongh@dongh-X99[00m:[01;34m~/log/XiangShan/stage1_log[00m$ sudo systemctl disable --now unattended-upgrades
+[?2004lSynchronizing state of unattended-upgrades.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install disable unattended-upgrades
+Removed /etc/systemd/system/multi-user.target.wants/unattended-upgrades.service.
+[?2004h]0;dongh@dongh-X99: ~/log/XiangShan/stage1_log[01;32mdongh@dongh-X99[00m:[01;34m~/log/XiangShan/stage1_log[00m$ [7msudo systemctl disable --now apt-dai[27m[7ml[27m[7my.timer apt-daily-upgrade.timer[27m[A]0;dongh@dongh-X99: ~/log/XiangShan/stage1_log[01;32mdongh@dongh-X99[00m:[01;34m~/log/XiangShan/stage1_log[00m$ sudo systemctl disable --now apt-daily.timer apt-daily-upgrade.timer
+[?2004lRemoved /etc/systemd/system/timers.target.wants/apt-daily.timer.
+Removed /etc/systemd/system/timers.target.wants/apt-daily-upgrade.timer.
+[?2004h]0;dongh@dongh-X99: ~/log/XiangShan/stage1_log[01;32mdongh@dongh-X99[00m:[01;34m~/log/XiangShan/stage1_log[00m$ x[Kexit
+[?2004lexit
+
+Script done on 2026-09-08 10:30:05+08:00 [COMMAND_EXIT_CODE="0"]

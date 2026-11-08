@@ -1,0 +1,142 @@
+Script started on 2026-09-08 13:10:25+08:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+[?2004h]0;dongh@dongh-X99: ~/log/XiangShan/stage1_log[01;32mdongh@dongh-X99[00m:[01;34m~/log/XiangShan/stage1_log[00m$ [7msource env.sh[27msource env.sh
+[?2004lbash: env.sh: No such file or directory
+[?2004h]0;dongh@dongh-X99: ~/log/XiangShan/stage1_log[01;32mdongh@dongh-X99[00m:[01;34m~/log/XiangShan/stage1_log[00m$ cd
+[?2004l[?2004h]0;dongh@dongh-X99: ~[01;32mdongh@dongh-X99[00m:[01;34m~[00m$ /[Kcd ~/github/e[Kxs-env/XiangShan
+[?2004l[?2004h]0;dongh@dongh-X99: ~/github/xs-env/XiangShan[01;32mdongh@dongh-X99[00m:[01;34m~/github/xs-env/XiangShan[00m$ source env.sh
+[?2004lbash: env.sh: No such file or directory
+[?2004h]0;dongh@dongh-X99: ~/github/xs-env/XiangShan[01;32mdongh@dongh-X99[00m:[01;34m~/github/xs-env/XiangShan[00m$ cd
+[?2004l[?2004h]0;dongh@dongh-X99: ~[01;32mdongh@dongh-X99[00m:[01;34m~[00m$ cd~[K ~/github/en[K[Kxs-v[Kenv
+[?2004l[?2004h]0;dongh@dongh-X99: ~/github/xs-env[01;32mdongh@dongh-X99[00m:[01;34m~/github/xs-env[00m$ source env.sh
+[?2004lSET XS_PROJECT_ROOT: /home/dongh/github/xs-env
+SET NOOP_HOME (XiangShan RTL Home): /home/dongh/github/xs-env/XiangShan
+SET NEMU_HOME: /home/dongh/github/xs-env/NEMU
+SET AM_HOME: /home/dongh/github/xs-env/nexus-am
+SET DRAMSIM3_HOME: /home/dongh/github/xs-env/DRAMsim3
+[?2004h]0;dongh@dongh-X99: ~/github/xs-env[01;32mdongh@dongh-X99[00m:[01;34m~/github/xs-env[00m$ cd $NOOP_HOME
+[?2004l[?2004h]0;dongh@dongh-X99: ~/github/xs-env/XiangShan[01;32mdongh@dongh-X99[00m:[01;34m~/github/xs-env/XiangShan[00m$ make init
+[?2004lgit submodule update --init
+cd rocket-chip && git submodule update --init cde hardfloat
+cd openLLC && git submodule update --init openNCB
+[?2004h]0;dongh@dongh-X99: ~/github/xs-env/XiangShan[01;32mdongh@dongh-X99[00m:[01;34m~/github/xs-env/XiangShan[00m$ [7mmake emu CONFIG=MinimalConfig EMU_TRA[27m[7mC[27m[7mE=1 -j32[27m[A]0;dongh@dongh-X99: ~/github/xs-env/XiangShan[01;32mdongh@dongh-X99[00m:[01;34m~/github/xs-env/XiangShan[00m$ make emu CONFIG=MinimalConfig EMU_TRAC[1PE=1 -j3[K20
+[?2004lmake -C ./difftest emu SIM_TOP=SimTop DESIGN_DIR=/home/dongh/github/xs-env/XiangShan NUM_CORES=1 RTL_SUFFIX=sv
+make[1]: Entering directory '/home/dongh/github/xs-env/XiangShan/difftest'
+Tue, 08 Sep 2026 13:16:35 +0800
+Building emu...
+make[2]: Entering directory '/home/dongh/github/xs-env/XiangShan/difftest'
+time -avp -o /home/dongh/github/xs-env/XiangShan/build/time.log make -s VM_PARALLEL_BUILDS=1 OPT_SLOW="-O0" \
+					OPT_FAST=-O3 \
+					PGO_CFLAGS= \
+					PGO_LDFLAGS= \
+					-C /home/dongh/github/xs-env/XiangShan/build/emu-compile -f /home/dongh/github/xs-env/XiangShan/build/emu-compile/VSimTop.mk 
+make[3]: Entering directory '/home/dongh/github/xs-env/XiangShan/build/emu-compile'
+In file included from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:20[m[K:
+[01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/common/flash.h:34:[m[K [01;31m[Kerror: [m[Kconflicting declaration of C function ‘[01m[Kvoid flash_read(uint32_t, uint64_t*)[m[K’
+   34 | extern "C" void flash_read(uint32_t addr, uint64_t *data);
+      | 
+In file included from [01m[K./VSimTop___024unit.h:9[m[K,
+                 from [01m[K./VSimTop__Syms.h:14[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.h:21[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:17[m[K:
+[01m[K./VSimTop__Dpi.h:23:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kvoid flash_read(int, long long int*)[m[K’
+   23 |     extern void flash_read(int addr, long long* data);
+      | 
+In file included from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:22[m[K:
+[01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/common/ram.h:35:[m[K [01;31m[Kerror: [m[Kconflicting declaration of C function ‘[01m[Kuint64_t difftest_ram_read(uint64_t)[m[K’
+   35 | extern "C" uint64_t difftest_ram_read(uint64_t rIdx);
+      | 
+In file included from [01m[K./VSimTop___024unit.h:9[m[K,
+                 from [01m[K./VSimTop__Syms.h:14[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.h:21[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:17[m[K:
+[01m[K./VSimTop__Dpi.h:19:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Klong long int difftest_ram_read(long long int)[m[K’
+   19 |     extern long long difftest_ram_read(long long rIdx);
+      | 
+In file included from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:22[m[K:
+[01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/common/ram.h:36:[m[K [01;31m[Kerror: [m[Kconflicting declaration of C function ‘[01m[Kvoid difftest_ram_write(uint64_t, uint64_t, uint64_t)[m[K’
+   36 | extern "C" void difftest_ram_write(uint64_t wIdx, uint64_t wdata, uint64_t wmask);
+      | 
+In file included from [01m[K./VSimTop___024unit.h:9[m[K,
+                 from [01m[K./VSimTop__Syms.h:14[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.h:21[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:17[m[K:
+[01m[K./VSimTop__Dpi.h:21:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kvoid difftest_ram_write(long long int, long long int, long long int)[m[K’
+   21 |     extern void difftest_ram_write(long long index, long long data, long long mask);
+      | 
+In file included from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:24[m[K:
+[01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/common/sdcard.h:23:[m[K [01;31m[Kerror: [m[Kconflicting declaration of C function ‘[01m[Kvoid sd_setaddr(uint32_t)[m[K’
+   23 | extern "C" void sd_setaddr(uint32_t addr);
+      | 
+In file included from [01m[K./VSimTop___024unit.h:9[m[K,
+                 from [01m[K./VSimTop__Syms.h:14[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.h:21[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:17[m[K:
+[01m[K./VSimTop__Dpi.h:31:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kvoid sd_setaddr(int)[m[K’
+   31 |     extern void sd_setaddr(int addr);
+      | 
+In file included from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:24[m[K:
+[01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/common/sdcard.h:24:[m[K [01;31m[Kerror: [m[Kconflicting declaration of C function ‘[01m[Kvoid sd_read(uint32_t*)[m[K’
+   24 | extern "C" void sd_read(uint32_t *data);
+      | 
+In file included from [01m[K./VSimTop___024unit.h:9[m[K,
+                 from [01m[K./VSimTop__Syms.h:14[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.h:21[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:17[m[K:
+[01m[K./VSimTop__Dpi.h:29:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kvoid sd_read(int*)[m[K’
+   29 |     extern void sd_read(int* data);
+      | 
+In file included from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/difftest/difftest.h:23[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:29[m[K:
+[01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/common/golden.h:26:[m[K [01;31m[Kerror: [m[Kconflicting declaration of C function ‘[01m[Kuint8_t pte_helper(uint64_t, uint64_t, uint64_t*, uint8_t*)[m[K’
+   26 | extern "C" uint8_t pte_helper(uint64_t satp, uint64_t vpn, uint64_t *pte, uint8_t *level);
+      | 
+In file included from [01m[K./VSimTop___024unit.h:9[m[K,
+                 from [01m[K./VSimTop__Syms.h:14[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.h:21[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:17[m[K:
+[01m[K./VSimTop__Dpi.h:27:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kchar pte_helper(long long int, long long int, long long int*, char*)[m[K’
+   27 |     extern char pte_helper(long long satp, long long vpn, long long* pte, char* level);
+      | 
+In file included from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/difftest/difftest.h:23[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:29[m[K:
+[01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/common/golden.h:27:[m[K [01;31m[Kerror: [m[Kconflicting declaration of C function ‘[01m[Kuint64_t amo_helper(uint8_t, uint64_t, uint64_t, uint8_t)[m[K’
+   27 | extern "C" uint64_t amo_helper(uint8_t cmd, uint64_t addr, uint64_t wdata, uint8_t mask);
+      | 
+In file included from [01m[K./VSimTop___024unit.h:9[m[K,
+                 from [01m[K./VSimTop__Syms.h:14[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.h:21[m[K,
+                 from [01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:17[m[K:
+[01m[K./VSimTop__Dpi.h:17:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Klong long int amo_helper(char, long long int, long long int, char)[m[K’
+   17 |     extern long long amo_helper(char cmd, long long addr, long long wdata, char mask);
+      | 
+[01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:[m[K In constructor ‘[01m[KEmulator::Emulator(int, const char**)[m[K’:
+[01m[K/home/dongh/github/xs-env/XiangShan/difftest/src/test/csrc/verilator/emu.cpp:416:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Ksize_t fread(void*, size_t, size_t, FILE*)[m[K’ declared with attribute ‘[01m[Kwarn_unused_result[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-result-Wunused-result]8;;[m[K]
+  416 |       fread(&args.overwrite_nbytes, sizeof(uint32_t), 1, fp);
+      | 
+make[3]: *** [/home/dongh/github/xs-env/XiangShan/build/emu-compile/VSimTop.mk:153: emu.o] Error 1
+make[3]: *** Waiting for unfinished jobs....
+^Cmake[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__58.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__53.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__55.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__49.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__54.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__48.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__56.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__51.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__45.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__35.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__33.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__43.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__3.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__34.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__47.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__46.o] Interrupt
+make[3]: *** [/usr/share/verilator/include/verilated.mk:214: VSimTop__52.o] Interrupt
+make[2]: *** [verilator.mk:152: build_emu] Interrupt
+make[1]: *** [verilator.mk:171: /home/dongh/github/xs-env/XiangShan/build/emu] Interrupt
+make: *** [Makefile:277: emu] Interrupt
+
+[?2004h]0;dongh@dongh-X99: ~/github/xs-env/XiangShan[01;32mdongh@dongh-X99[00m:[01;34m~/github/xs-env/XiangShan[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-08 13:23:12+08:00 [COMMAND_EXIT_CODE="130"]
